@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+
+        form{
+           margin: 50px; 
+          
+        }
+
+    </style>
+  </head>
+  <body>
+    {% include "insurance/navbar.html" %}
+ 
+
+
+<br><br><br>
+<h3 style="text-align: center;color: red;">РЕЄСТРАЦІЯ КЛІЄНТА</h3>
+<form method="POST" autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="username">Ім`я користувача</label>
+        {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="Введіть ім`я користувача..." %}
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Пароль</label>
+        {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="Введіть пароль..." %}
+      </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="first_name">Ім`я</label>
+          {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="Введіть ім`я..." autocomplete="off" %}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="last_name">Прізвище</label>
+          {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Введіть прізвище..." autocomplete="off" %}
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="mobile">Контакт</label>
+          {% render_field customerForm.mobile|attr:'required:true'  class="form-control" placeholder="Введіть контакт..." autocomplete="off" %}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="address">Адреса</label>
+          {% render_field customerForm.address|attr:'required:true'  class="form-control" placeholder="Введіть адресу..." autocomplete="off" %}
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="profile_pic">Зображення профілю</label>
+          {% render_field customerForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
+        </div>
+        
+      </div>
+
+
+    <button type="submit" class="btn btn-primary">Зареєструватися</button>
+  </form>
+
+
+<br><br>
+{% include "insurance/footer.html" %}
+  </body>
+</html>
